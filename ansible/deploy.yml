@@ -3,10 +3,10 @@
   become: yes
   tasks:
     - name: copy to tomcat
-      src:
-      copy: '/var/snap/jenkins/4874/workspace/webs/target/webs.war'
-      src: '/opt/tomcat/webapps/webs.war'
-      remote_src: no
+      copy:
+        src: '/var/snap/jenkins/4874/workspace/webs/target/webs.war'
+        dest: '/opt/tomcat/webapps/webs.war'
+        remote_src: no
      
 - name: restart tomcat
   hosts: tomcat
