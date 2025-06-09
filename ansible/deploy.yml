@@ -1,0 +1,7 @@
+- name: deploy to tomcat
+  hosts: web
+  become: yes
+  tasks:
+    - name: copy to tomcat
+      src:
+      copy: '/var/snap'

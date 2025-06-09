@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    tools{
+        maven 'maven'
+        jdk 'java-11'
+    }
+    
+    stages{
+        stage('checkout'){
+        git branch:'master',url:'https://github.com/Darshan2610/webs.git'
+        }
+    }
+    
+    stage('build'){
+        steps{sh 'mvn clean package'}
+        
+    }
+    
+
+}
