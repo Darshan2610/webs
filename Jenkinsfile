@@ -7,13 +7,16 @@ pipeline{
     
     stages{
         stage('checkout'){
+        steps{
         git branch:'master',url:'https://github.com/Darshan2610/webs.git'
         }
-    }
+        }
+    
     
     stage('build'){
         steps{sh 'mvn clean package'}
         
+    }
     }
     
 
