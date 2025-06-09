@@ -4,4 +4,16 @@
   tasks:
     - name: copy to tomcat
       src:
-      copy: '/var/snap'
+      copy: '/var/snap/jenkins/4874/workspace/webs/target/webs.war'
+      src: '/opt/tomcat/webapps/webs.war'
+      remote_src: no
+     
+- name: restart tomcat
+  hosts: tomcat
+  become: yes
+  tasks:
+    - name: starting tomcat
+      ansible.builtin.shell : |
+        /opt/tomcat/bin/shutdown.sh || true
+        sleep 5
+        /opt/tomcat/bin/startup.sh
